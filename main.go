@@ -19,7 +19,23 @@ type User struct {
 	BirthDate   time.Time
 }
 
+type myStruct struct {
+	FirstName string
+}
+
+// receiver function, it is a function that is attached to a type
+func (m *myStruct) printFirstName() string {
+	return m.FirstName
+}
+
 func main() { // main function is the entry point of the program, it is the first function to be executed, it is the only function that can be executed without being called
+
+	// call receiver function on a struct
+	var myVar myStruct
+	myVar.FirstName = "John"
+	myVar2 := myStruct{FirstName: "Mary"}
+	log.Println(myVar2.printFirstName())
+	log.Println("myVar is set to", myVar.printFirstName())
 
 	// declare a variable
 	var whatToSay string
