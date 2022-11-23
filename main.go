@@ -4,38 +4,12 @@ package main
 import (
 	"fmt"
 	"log"
-	"time"
 )
 
 // package level variable
 var sGlobal = "John"
 
-// struct is a collection of fields, it is a user defined type, it is a composite type
-type User struct {
-	FirstName   string
-	LastName    string
-	Age         int
-	PhoneNumber string
-	BirthDate   time.Time
-}
-
-type myStruct struct {
-	FirstName string
-}
-
-// receiver function, it is a function that is attached to a type
-func (m *myStruct) printFirstName() string {
-	return m.FirstName
-}
-
 func main() { // main function is the entry point of the program, it is the first function to be executed, it is the only function that can be executed without being called
-
-	// call receiver function on a struct
-	var myVar myStruct
-	myVar.FirstName = "John"
-	myVar2 := myStruct{FirstName: "Mary"}
-	log.Println(myVar2.printFirstName())
-	log.Println("myVar is set to", myVar.printFirstName())
 
 	// declare a variable
 	var whatToSay string
@@ -68,23 +42,6 @@ func main() { // main function is the entry point of the program, it is the firs
 	log.Println("sGlobal is", sGlobal) // global variable
 	log.Println("sLocal is", sLocal)   // local variable
 	saySomething("xxx")
-
-	// var firstName string
-	// var lastName string
-	// var age int
-	// var phoneNumber string
-	// var birthDate time.Time
-
-	// lowercase variable is not exported, capital letter variable is exported
-	user := User{
-		FirstName:   "John",
-		LastName:    "Doe",
-		Age:         30,
-		PhoneNumber: "123456789",
-		BirthDate:   time.Now(),
-	}
-
-	log.Println(user.FirstName, user.LastName, user.Age, user.PhoneNumber, user.BirthDate)
 
 }
 
